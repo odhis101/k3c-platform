@@ -1,0 +1,250 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* K3C Brand Colors - Light Mode */
+
+  /* Primary Brand Color - Burgundy/Maroon #6B1C1C */
+  --primary: #6B1C1C;
+  --primary-dark: #4A1414;
+  --primary-light: #8B2323;
+  --primary-foreground: #ffffff;
+
+  /* Secondary Brand Color - Orange/Gold #D97706 */
+  --secondary: #D97706;
+  --secondary-dark: #B45309;
+  --secondary-light: #F59E0B;
+  --secondary-foreground: #ffffff;
+
+  /* Accent Colors */
+  --accent: #F3E8D8;
+  --accent-foreground: #6B1C1C;
+
+  /* Neutral Colors */
+  --card: #ffffff;
+  --card-foreground: #1a1a1a;
+  --popover: #ffffff;
+  --popover-foreground: #1a1a1a;
+
+  /* UI State Colors */
+  --muted: #F5F3F0;
+  --muted-foreground: #6B7280;
+  --border: #E5E7EB;
+  --input: #E5E7EB;
+  --ring: #6B1C1C;
+
+  /* Semantic Colors */
+  --success: #10B981;
+  --success-foreground: #ffffff;
+  --warning: #F59E0B;
+  --warning-foreground: #ffffff;
+  --error: #EF4444;
+  --error-foreground: #ffffff;
+  --info: #3B82F6;
+  --info-foreground: #ffffff;
+
+  /* Chart Colors */
+  --chart-1: #6B1C1C;
+  --chart-2: #D97706;
+  --chart-3: #10B981;
+  --chart-4: #8B2323;
+  --chart-5: #F59E0B;
+
+  /* Radius */
+  --radius: 0.625rem;
+  --background: #FAF9F6;
+  --foreground: #1a1a1a;
+  --destructive: #EF4444;
+  --destructive-foreground: #ffffff;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #1a1a1a;
+  --sidebar-primary: #6B1C1C;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #F3E8D8;
+  --sidebar-accent-foreground: #6B1C1C;
+  --sidebar-border: #E5E7EB;
+  --sidebar-ring: #6B1C1C;
+}
+
+@theme inline {
+  /* Background and Foreground */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* Primary - Burgundy/Maroon */
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-light: var(--primary-light);
+  --color-primary-foreground: var(--primary-foreground);
+
+  /* Secondary - Orange/Gold */
+  --color-secondary: var(--secondary);
+  --color-secondary-dark: var(--secondary-dark);
+  --color-secondary-light: var(--secondary-light);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  /* Accent */
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  /* Card */
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  /* Popover */
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  /* Muted */
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  /* Border and Input */
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Semantic Colors */
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-error: var(--error);
+  --color-error-foreground: var(--error-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+
+  /* Charts */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* Fonts */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* Radius */
+  --default-radius: var(--radius);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-destructive: var(--destructive);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+}
+
+/* Disable dark mode auto-detection to always use light theme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Keep light theme even in dark mode preference */
+    --background: #FAF9F6;
+    --foreground: #1a1a1a;
+    --card: #ffffff;
+    --card-foreground: #1a1a1a;
+    --popover: #ffffff;
+    --popover-foreground: #1a1a1a;
+    --primary: #6B1C1C;
+    --primary-foreground: #ffffff;
+    --secondary: #D97706;
+    --secondary-foreground: #ffffff;
+    --muted: #F5F3F0;
+    --muted-foreground: #6B7280;
+    --accent: #F3E8D8;
+    --accent-foreground: #6B1C1C;
+    --border: #E5E7EB;
+    --input: #E5E7EB;
+  }
+}
+
+body {
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--muted);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+}
+
+/* Smooth transitions */
+* {
+  @apply transition-colors duration-200;
+}
+
+/* Remove transition from specific elements for performance */
+.no-transition,
+.no-transition * {
+  transition: none !important;
+}
+
+/* Keep dark class light for K3C branding */
+.dark {
+  --background: #FAF9F6;
+  --foreground: #1a1a1a;
+  --card: #ffffff;
+  --card-foreground: #1a1a1a;
+  --popover: #ffffff;
+  --popover-foreground: #1a1a1a;
+  --primary: #6B1C1C;
+  --primary-foreground: #ffffff;
+  --secondary: #D97706;
+  --secondary-foreground: #ffffff;
+  --muted: #F5F3F0;
+  --muted-foreground: #6B7280;
+  --accent: #F3E8D8;
+  --accent-foreground: #6B1C1C;
+  --destructive: #EF4444;
+  --border: #E5E7EB;
+  --input: #E5E7EB;
+  --ring: #6B1C1C;
+  --chart-1: #6B1C1C;
+  --chart-2: #D97706;
+  --chart-3: #10B981;
+  --chart-4: #8B2323;
+  --chart-5: #F59E0B;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #1a1a1a;
+  --sidebar-primary: #6B1C1C;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #F3E8D8;
+  --sidebar-accent-foreground: #6B1C1C;
+  --sidebar-border: #E5E7EB;
+  --sidebar-ring: #6B1C1C;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
