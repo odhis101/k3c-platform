@@ -19,11 +19,12 @@ const io = new SocketIOServer(server, {
   cors: {
     origin: (origin, callback) => {
       if (!origin) return callback(null, true);
-      if (allowedOrigins.some(allowed => origin.startsWith(allowed))) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
+
+      const isAllowed = allowedOrigins.some(allowed =>
+        origin === allowed || origin.startsWith(allowed)
+      );
+
+      callback(null, isAllowed);
     },
     methods: ['GET', 'POST'],
     credentials: true,
