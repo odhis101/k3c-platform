@@ -53,7 +53,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   const login = async (email: string, password: string) => {
     try {
-      const response = await authAPI.login({ email, password }) as AuthResponse;
+      const response = await authAPI.login({ email, password }) as unknown as AuthResponse;
 
       if (response.success) {
         setUser(response.data.user);
@@ -73,7 +73,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   const register = async (data: { name: string; email: string; phone: string; password: string }) => {
     try {
-      const response = await authAPI.register(data) as AuthResponse;
+      const response = await authAPI.register(data) as unknown as AuthResponse;
 
       if (response.success) {
         setUser(response.data.user);

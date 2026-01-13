@@ -50,7 +50,7 @@ interface DashboardStats {
 
 export default function DashboardPage() {
   const router = useRouter();
-  const { user, isAuthenticated, isLoading } = useAuth();
+  const { user, isAuthenticated, loading: authLoading } = useAuth();
 
   const [contributions, setContributions] = useState<Contribution[]>([]);
   const [stats, setStats] = useState<DashboardStats>({
@@ -62,14 +62,14 @@ export default function DashboardPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!isLoading && !isAuthenticated) {
+    if (!authLoading && !isAuthenticated) {
       router.push('/auth/login?redirect=/dashboard');
       return;
     }
     if (isAuthenticated) {
       fetchDashboardData();
     }
-  }, [isAuthenticated, isLoading]);
+  }, [isAuthenticated, authLoading]);
 
   const fetchDashboardData = async () => {
     try {
@@ -117,7 +117,7 @@ export default function DashboardPage() {
     }
   };
 
-  if (isLoading || loading) {
+  if (authLoading || loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
